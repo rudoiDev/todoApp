@@ -1,0 +1,291 @@
+@import './mixins.scss';
+@import './nullstyle.scss';
+
+body {
+	height: 100% !important;
+	* {
+		outline: none;
+	}
+}
+.wrapper {
+	background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.nav { 
+	padding: rem(20);
+}
+.container {
+	max-width: rem(1180);
+	margin: auto;
+	.nav_mainHeading {
+		text-align: center;
+		h1 {
+			font-family: 'Pushster', cursive;
+			text-align: center;
+			position: relative;
+			font-size: rem(32); 
+			color: #fff;
+			display: inline;
+			&::before {
+				content: '';
+				width: rem(40);
+				height: rem(2);
+				background: #fff;
+				position: absolute;
+				transform: translate(-50%, 0px);
+				top: 50%;
+				left: -25%;
+			}
+			&::after {
+				content: '';
+				width: rem(40);
+				height: rem(2);
+				background: #fff;
+				position: absolute;
+				transform: translate(-50%, 0);
+				top: 50%;
+				left: 125%;
+			}
+		}
+	}
+}
+
+.input_todoApp {
+	margin-top: rem(20);
+	display: flex;
+	justify-content: space-between;
+	.input_form legend {
+		position: absolute;
+		padding: rem(15) rem(20);
+		border-radius: rem(10);
+		background: #3389B8;
+		color: #fff;
+		font-size: rem(20);
+		top: -25px;
+		left: 30px;
+		outline: 1px solid #fff;
+		box-shadow: 1px 1px 5px #fff;
+	}
+	.input_form {
+		margin: rem(40) 0px rem(10) 0px;
+		padding: rem(30);
+		outline: 1px solid #fff;
+		box-shadow: 2px 2px 10px #fff;;
+		border-radius: rem(10);
+		width: 100%;
+		display: flex;
+		gap: rem(15);
+		position: relative;
+		flex-wrap: wrap;
+	}
+	.input_text {
+		@media screen and (max-width: 500px) {
+			margin: rem(10) 0;
+		}
+		padding: rem(20);
+		outline: 1px solid #000;
+		border-radius: rem(10);
+		flex: 1 0 77%;
+		margin-top: rem(25);
+		transition: box-shadow .3s ease-in-out;
+		font-size: rem(18);
+		&:focus {
+			box-shadow: 2px 2px 10px #333;
+		}
+		&::placeholder {
+			font-size: rem(18);
+		}
+	}
+	.input_submit {
+		@media screen and (max-width: 500px) {
+			margin: 0;
+		}
+	}
+}
+
+
+.btn_clear {
+	position: absolute;
+	top: 100%;   
+	left: 5%;  
+	width: 90%;
+}
+
+.input_submit, .btn_clear {
+	padding: rem(20);
+	font-size: rem(14);
+	outline: 1px solid #000;
+	border-radius: rem(10);
+	background-color: #3389B8;
+	color: #fff;
+	flex: 1 0 20%;
+	margin-top: rem(25);
+	transition: box-shadow, background-color .2s ease-in-out;
+}
+.input_submit:hover, .btn_clear:hover, .ul_tasks > *:hover {
+	background-color: #10D1E3;
+	box-shadow: 2px 2px 10px #333
+}
+.input_submit:active, .btn_clear:active, .ul_tasks > *:active {
+	transition: none;
+	color: #000;
+	background-color: #F5E167;
+}
+
+/* --- Стили карточек --- */
+
+.ul_wrapper {
+	flex: 1 1 auto;
+	margin: rem(50) rem(20) rem(20) rem(20);
+}
+.ul_container {
+	border: 1px solid #fff;
+	box-shadow: 1px 1px 5px #fff;
+	border-radius: rem(10);
+	position: relative;
+	padding: rem(10);
+	margin-bottom: rem(100);
+} 
+.ul_container legend {
+	position: absolute;
+	top: -25px;
+  left: 30px;
+	border-radius: rem(10);
+	color: #fff;
+	font-size: rem(20);
+	padding: rem(15) rem(20);
+	border-radius: rem(10);
+	background: #3389B8;
+	outline: 1px solid #fff;
+}
+.ul_list {
+	display: flex;
+	flex-direction: column;
+	margin-top: rem(30);
+	position: relative;
+}
+.ul_text {
+	outline: 1px solid #000; 
+	border-radius: rem(10); 
+	padding: rem(20);
+	margin: rem(10) rem(20);
+	font-size: rem(18);
+	color: #000;
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: rem(20);
+}
+
+.ul_text:last-child {
+	margin-bottom: rem(20);
+	flex: 1 1 50%;
+}
+.ul_description {
+	@media screen and (max-width: 600px) {
+		flex: 0 0 50%;
+	}
+	flex: 1 0 60%;
+	padding: rem(20);
+	border-right: 1px solid #000;
+	font-size: rem(20);
+}
+.li_buttons {
+	display: flex;
+	justify-content: space-between;
+	gap: rem(10);
+
+	@media screen and (max-width: 600px) {
+		flex-wrap: wrap;
+		& button {
+			flex: 0 0 100%;
+		}
+	}
+}
+.ul_spinner {
+	display: none;
+	padding: rem(30);
+	margin: rem(50) rem(50) 0px rem(50);
+	background: url('./sourse/img/spinner.svg') 50% 0/contain no-repeat;
+}
+.button_style {
+	padding: rem(10) rem(20);
+	border-radius: rem(5);
+	color: #fff;
+}
+.li_buttons__finish {
+	background: green;
+}
+.li_buttons__finish:hover {
+	background-color: #1EC78F;
+}
+.li_buttons_delete {
+	background: #F52A38;
+}
+.li_buttons_delete:hover {
+	background-color: #A30E03;
+}
+.ul_inform {
+	text-align: center;
+	color: #fff;
+	font-size: rem(32);
+	padding: rem(25) rem(25) 0px rem(25);
+	margin-top: rem(20);
+}
+
+/* --- Стили добавочные --- */
+
+.active_task {
+	background: #AEEBB3;
+}
+.active_button-complete {
+	opacity: .5;
+}
+ /* --- Стили для футера --- */
+
+.footer_wrapper {
+	padding: rem(40);
+	text-align: center;
+}
+.footer_description {
+	letter-spacing: .1em;
+	font-size: rem(32);
+	display: inline;
+	color: #fff;
+	position: relative;
+	@include adaptive-value('font-size', 32, 20, 1);
+	color: #fff;
+	a {
+		color: #F5E167;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+.footer_description::before {
+	content: '';
+	width: rem(40);
+	height: rem(2);
+	background: #fff;
+	position: absolute;
+    transform: translate(-50%, 0px);
+    top: 50%;
+    left: 111%;
+}
+.footer_description::after {
+	content: '';
+	width: rem(40);
+	height: rem(2);
+	background: #fff;
+	position: absolute;
+    transform: translate(-50%, 0px);
+	top: 50%;
+    left: -12%;
+}
+
+.btn, .btn2{
+	padding: rem(10);
+}   
